@@ -47,15 +47,13 @@ _yet to be defined..._
 
 ## Domain Entities
 
-### Entities Overview
-
 The template focuses on a simple sales system with the following entities:
 
 - **Customer**: Individuals who purchase products.
 - **Product**: Items available for sale.
 - **Order**: Records of products purchased by customers.
 
-### Entity Relationships
+The entity relationships are the following:
 
 - **Customer to Order**: One-to-many relationship (a customer can have multiple orders).
 - **Order to Product**: Many-to-one relationship (each order is associated with a product).
