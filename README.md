@@ -7,7 +7,6 @@
    - [How It Works](#how-it-works)
    - [Features](#features)
 2. [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
    - [Setup Instructions](#setup-instructions)
 3. [Domain Entities](#domain-entities)
    - [Entities Overview](#entities-overview)
@@ -20,12 +19,11 @@
    - [Using Variables](#using-variables)
 6. [Customization](#customization)
 7. [Example SQL Queries](#example-sql-queries)
-8. [Final Remarks](#final-remarks)
-9. [Support and Troubleshooting](#support-and-troubleshooting)
-10. [License](#license)
-11. [Acknowledgements](#acknowledgements)
-12. [Contact](#contact)
-13. [Additional Resources](#additional-resources)
+8. [Support and Troubleshooting](#support-and-troubleshooting)
+9. [License](#license)
+10. [Acknowledgements](#acknowledgements)
+11. [Contact](#contact)
+12. [Additional Resources](#additional-resources)
 
 ---
 
@@ -48,12 +46,6 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 
 ## Getting Started
 
-### Prerequisites
-
-- **RAW Account**:
-  - An active RAW account. [Sign up here](https://app.raw-labs.com/register) if you don't have one.
-
-  
 ### Setup Instructions
 
 _yet to be defined..._
@@ -79,27 +71,19 @@ The template focuses on a simple sales system with the following entities:
 
 ## Endpoint Overview
 
-### Available Endpoints
-
-1. **GET `/mock/customers`**: Retrieve customer details.
-2. **GET `/mock/customers/orders`**: Retrieve orders for a customer.
-3. **GET `/mock/products/sales`**: Retrieve sales information for products.
-
-### Endpoint Details
-
-#### 1. GET `/mock/customers`
+### 1. GET `/mock/customers`
 
 - **Description**: Returns customer information based on the provided `customer_id`. If no ID is provided, returns information for all customers.
 - **Query Parameters**:
   - `customer_id` (integer, optional): The ID of the customer.
 
-#### 2. GET `/mock/customers/orders`
+### 2. GET `/mock/customers/orders`
 
 - **Description**: Returns mocked customer orders for a given `customer_id`, including order ID, product name, quantity, and price.
 - **Query Parameters**:
   - `customer_id` (integer, optional): The ID of the customer.
 
-#### 3. GET `/mock/products/sales`
+### 3. GET `/mock/products/sales`
 
 - **Description**: Returns sales information for products. If a `product_id` is provided, returns sales for that specific product.
 - **Query Parameters**:
@@ -277,4 +261,3 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](LIC
 - **RAW Documentation**: Comprehensive guides and references are available at [docs.raw-labs.com](https://docs.raw-labs.com/).
 - **Publishing APIs**: Learn how to publish your SQL queries as APIs [here](https://docs.raw-labs.com/docs/publishing-api/overview).
 - **SQL Language**: Explore RAW's SQL language for data manipulation [here](https://docs.raw-labs.com/sql/overview).
-- **SNAPI Language**: Explore RAW's custom language for data manipulation [here](https://docs.raw-labs.com/snapi/overview).
