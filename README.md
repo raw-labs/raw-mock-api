@@ -61,20 +61,7 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 
 ### Setup Instructions
 
-1. **Clone the Repository**:
-   - Import this repository into your RAW workspace.
-
-2. **Review SQL Files**:
-   - Each endpoint corresponds to an SQL file containing the query logic.
-   - The SQL files use the `:<variable_name>` notation for parameters.
-
-3. **Deploy APIs in RAW**:
-   - Use the RAW platform to publish the SQL queries as APIs.
-   - Refer to the [Publishing APIs documentation](https://docs.raw-labs.com/docs/publishing-api/overview) for guidance.
-
-4. **Test Your APIs**:
-   - Use RAW's testing tools or tools like Postman to test your APIs.
-   - Provide query parameters as needed to test different scenarios.
+_yet to be defined..._
 
 ## Domain Entities
 
