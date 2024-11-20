@@ -8,8 +8,6 @@
    - [Features](#features)
 2. [Getting Started](#getting-started)
 3. [Domain Entities](#domain-entities)
-   - [Entities Overview](#entities-overview)
-   - [Entity Relationships](#entity-relationships)
 4. [Endpoint Overview](#endpoint-overview)
 5. [Query Structure](#query-structure)
    - [Basic Structure of SQL Files](#basic-structure-of-sql-files)
