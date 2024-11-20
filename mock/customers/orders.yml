@@ -1,0 +1,15 @@
+raw: "0.10"
+endpoint: GET
+metadata:
+  title: Retrieve mocked Customer Orders.
+  description: Returns mocked customer details for a given customer ID, including order ID, product name, quantity, and price.
+  tags:
+    - mock
+    - orders
+code: sql
+codeFile: orders.sql
+format: json
+security:
+  public: true
+computeClass: normal
+enabled: true

@@ -1,0 +1,15 @@
+raw: "0.10"
+endpoint: GET
+metadata:
+  title: Retrieve Get customer details.
+  description: Returns customer information based on the provided customer ID. If no ID is provided, returns information for all customers.
+  tags:
+    - mock
+    - customers
+code: sql
+codeFile: customers.sql
+format: json
+security:
+  public: true
+computeClass: normal
+enabled: true
