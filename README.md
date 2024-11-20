@@ -294,9 +294,3 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](LIC
 - **Publishing APIs**: Learn how to publish your SQL queries as APIs [here](https://docs.raw-labs.com/docs/publishing-api/overview).
 - **SQL Language**: Explore RAW's SQL language for data manipulation [here](https://docs.raw-labs.com/sql/overview).
 - **SNAPI Language**: Explore RAW's custom language for data manipulation [here](https://docs.raw-labs.com/snapi/overview).
-
----
-
-**Note**: I have corrected the README to remove references to Databricks, as this mock data API template does not utilize Databricks. The "Support and Troubleshooting," "Acknowledgements," and "Additional Resources" sections have been updated accordingly. Additionally, I've included the table of contents for easy navigation.
-
-Please let me know if you need any further adjustments.
