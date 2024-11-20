@@ -64,18 +64,15 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 1. **Clone the Repository**:
    - Import this repository into your RAW workspace.
 
-2. **Review OpenAPI Specification**:
-   - Examine the provided OpenAPI specification to understand the available endpoints.
-
-3. **Review SQL Files**:
+2. **Review SQL Files**:
    - Each endpoint corresponds to an SQL file containing the query logic.
    - The SQL files use the `:<variable_name>` notation for parameters.
 
-4. **Deploy APIs in RAW**:
+3. **Deploy APIs in RAW**:
    - Use the RAW platform to publish the SQL queries as APIs.
    - Refer to the [Publishing APIs documentation](https://docs.raw-labs.com/docs/publishing-api/overview) for guidance.
 
-5. **Test Your APIs**:
+4. **Test Your APIs**:
    - Use RAW's testing tools or tools like Postman to test your APIs.
    - Provide query parameters as needed to test different scenarios.
 
@@ -171,6 +168,12 @@ This mock data API template is designed to be easily customizable:
 
 ### 1. GET `/mock/customers`
 
+**Description:**
+
+This SQL query retrieves customer details from a hardcoded list of customers. If a `customer_id` is provided, it filters the results to return only the customer with the matching `CustomerID`. If no `customer_id` is provided, it returns all customers.
+
+**SQL Query:**
+
 ```sql
 -- @param customer_id the ID of the customer
 -- @type customer_id integer
@@ -187,7 +190,15 @@ SELECT * FROM (
 WHERE :customer_id IS NULL OR CustomerID = :customer_id;
 ```
 
+---
+
 ### 2. GET `/mock/customers/orders`
+
+**Description:**
+
+This SQL query retrieves orders for customers from hardcoded data. It includes details such as Order ID, Product Name, Quantity, and Price. If a `customer_id` is provided, it filters the orders to those belonging to that customer. If no `customer_id` is provided, it returns orders for all customers.
+
+**SQL Query:**
 
 ```sql
 -- @param customer_id the ID of the customer
@@ -214,7 +225,15 @@ INNER JOIN (
 WHERE :customer_id IS NULL OR Orders.CustomerID = :customer_id;
 ```
 
+---
+
 ### 3. GET `/mock/products/sales`
+
+**Description:**
+
+This SQL query calculates the total sales for products using hardcoded data. It sums up the total sales by multiplying the quantity sold by the product price. If a `product_id` is provided, it filters the results to show sales for that specific product. If no `product_id` is provided, it returns sales information for all products.
+
+**SQL Query:**
 
 ```sql
 -- @param product_id the ID of the product
@@ -236,7 +255,7 @@ INNER JOIN (
         (2, 2, 1),
         (3, 1, 1),
         (1, 3, 5)
-) AS Orders (CustomerID, ProductID, Quantity)
+    ) AS Orders (CustomerID, ProductID, Quantity)
     ON Products.ProductID = Orders.ProductID
 WHERE :product_id IS NULL OR Products.ProductID = :product_id
 GROUP BY Products.ProductName;
