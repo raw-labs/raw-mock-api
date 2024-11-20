@@ -7,13 +7,10 @@
    - [How It Works](#how-it-works)
    - [Features](#features)
 2. [Getting Started](#getting-started)
-   - [Setup Instructions](#setup-instructions)
 3. [Domain Entities](#domain-entities)
    - [Entities Overview](#entities-overview)
    - [Entity Relationships](#entity-relationships)
 4. [Endpoint Overview](#endpoint-overview)
-   - [Available Endpoints](#available-endpoints)
-   - [Endpoint Details](#endpoint-details)
 5. [Query Structure](#query-structure)
    - [Basic Structure of SQL Files](#basic-structure-of-sql-files)
    - [Using Variables](#using-variables)
@@ -45,8 +42,6 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 - **Template Structure**: Offers a foundation to build and customize your own APIs.
 
 ## Getting Started
-
-### Setup Instructions
 
 _yet to be defined..._
 
