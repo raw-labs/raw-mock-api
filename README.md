@@ -52,13 +52,8 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 
 - **RAW Account**:
   - An active RAW account. [Sign up here](https://app.raw-labs.com/register) if you don't have one.
-- **Permissions**:
-  - **RAW**:
-    - Admin role in your RAW account.
-- **Dependencies**:
-  - Web browser to access the RAW platform.
-  - Internet connectivity.
 
+  
 ### Setup Instructions
 
 _yet to be defined..._
@@ -250,18 +245,6 @@ GROUP BY Products.ProductName;
 
 ---
 
-## Final Remarks
-
-This template serves as a starting point for building mock APIs using the RAW platform. It's ideal for:
-
-- **Testing**: Quickly test API integrations without needing a live database.
-- **Prototyping**: Develop API structures and logic before connecting to actual data sources.
-- **Education**: Learn how to construct APIs and SQL queries within the RAW platform.
-
-Feel free to customize and expand upon this template to suit your specific needs.
-
----
-
 ## Support and Troubleshooting
 
 - **Documentation**:
@@ -279,11 +262,6 @@ Feel free to customize and expand upon this template to suit your specific needs
 ## License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- **Contributors**: Thanks to all our contributors for their efforts.
-- **RAW Platform**: This template demonstrates the capabilities of the RAW platform in creating mock APIs.
 
 ## Contact
 
