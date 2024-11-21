@@ -1,8 +1,8 @@
-# RAW Mock Data API Template
+# RAW Mock API Template
 
 ## Introduction
 
-This repository provides a **Mock Data API Template** using the RAW platform. It demonstrates how to create API endpoints that return hardcoded (mock) data using SQL queries. This template is ideal for testing, prototyping, or educational purposes where actual database connections are not required.
+This repository provides a **Mock API Template** using the RAW platform. It demonstrates how to create API endpoints that return hardcoded (mock) data using SQL queries. This template is ideal for testing, prototyping, or educational purposes where actual database connections are not required.
 
 ### How It Works
 
