@@ -87,12 +87,9 @@ To document parameters, enforce types or default values, add metadata at the top
 
 ## Next Steps
 
-This API template is easily customizable in RAW. Here are some ideas for next steps:
+Visit the [Mock API Starter](https://www.raw-labs.com/templates/mock-api-starter) page, deploy this template and get started using RAW.
 
-- **Modify the Queries**: Adjust the hardcoded data in the `VALUES` clause to fit your use case.
-- **Change Parameters**: Add or modify parameters to support additional filters or data retrieval options.
-- **Add New Endpoints**: Create new YAML and SQL files to define new endpoints.
-- **Integrate with Real Backend Systems**: Replace the mock data with queries against actual backend systems, if needed.
+When you create your RAW account, you will be able to view and run these endpoints in the RAW catalog, as well as quickly modify these endpoints or create new ones in the RAW workspace, in our easy-to-use web IDE.
 
 ## License
 
