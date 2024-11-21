@@ -1,30 +1,6 @@
 # RAW Mock Data API Template
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-   - [Description](#description)
-   - [How It Works](#how-it-works)
-   - [Features](#features)
-2. [Getting Started](#getting-started)
-3. [Domain Entities](#domain-entities)
-4. [Endpoint Overview](#endpoint-overview)
-5. [Query Structure](#query-structure)
-   - [Basic Structure of SQL Files](#basic-structure-of-sql-files)
-   - [Using Variables](#using-variables)
-6. [Customization](#customization)
-7. [Example SQL Queries](#example-sql-queries)
-8. [Support and Troubleshooting](#support-and-troubleshooting)
-9. [License](#license)
-10. [Acknowledgements](#acknowledgements)
-11. [Contact](#contact)
-12. [Additional Resources](#additional-resources)
-
----
-
 ## Introduction
-
-### Description
 
 This repository provides a **Mock Data API Template** using the RAW platform. It demonstrates how to create API endpoints that return hardcoded (mock) data using SQL queries. This template is ideal for testing, prototyping, or educational purposes where actual database connections are not required.
 
@@ -35,18 +11,14 @@ The RAW platform allows you to create APIs by writing SQL queries. In this templ
 ### Features
 
 - **Mock Data Generation**: Provides hardcoded data without the need for a database.
-- **Dynamic Querying**: Supports query parameters to filter and retrieve specific data.
+- **Query Parameters**: Supports query parameters to filter and retrieve specific data.
 - **Quick Setup**: Easy to deploy and test endpoints without complex configurations.
 - **Template Structure**: Offers a foundation to build and customize your own APIs.
 
 ## Getting Started
 
-You have two options to deploy and explore the Data Virtualization API Template:
-
-### Option 1: Deploy via the "Get Started" Button
-
 1. **Deploy the API:**
-   - Visit the [Data Virtualization Starter Template](https://www.raw-labs.com/templates/mock-data-starter).
+   - Visit the [Mock API Starter](https://www.raw-labs.com/templates/mock-api-starter) page.
    - Click the **"Get Started"** button to deploy the template.
    - If you don’t have a RAW account, you’ll be prompted to create one for free. Deployment and account setup are seamless—just one click away!
 
@@ -58,23 +30,9 @@ You have two options to deploy and explore the Data Virtualization API Template:
    - Modify the API to suit your requirements.
    - Once you’re satisfied, re-publish the changes to make your new API available instantly.
 
-### Option 2: Import the GitHub Repository (Business Plan Required)
+## Overview
 
-1. **Prerequisites:**
-   - A RAW account with a **Business Plan** subscription to access the GitHub integration feature.
-
-2. **Import the Repository:**
-   - Follow the instructions in the [RAW GitHub Integration Documentation](https://docs.raw-labs.com/docs/github/) to link your GitHub account.
-   - Import this GitHub repository into your RAW workspace.
-
-3. **Explore and Customize:**
-   - Review the SQL files and endpoints in your RAW workspace.
-   - Make any desired modifications to the API.
-
-
-## Domain Entities
-
-The template focuses on a simple sales system with the following entities:
+The template focuses on a simple sales system with the following domain entities:
 
 - **Customer**: Individuals who purchase products.
 - **Product**: Items available for sale.
@@ -85,183 +43,56 @@ The entity relationships are the following:
 - **Customer to Order**: One-to-many relationship (a customer can have multiple orders).
 - **Order to Product**: Many-to-one relationship (each order is associated with a product).
 
----
-
 **Note**: Since the data is mocked using hardcoded values, the relationships are simulated within the SQL queries.
 
-## Endpoint Overview
+## Endpoints
 
-### 1. GET `/mock/customers`
+### GET `/mock/customers`
 
 - **Description**: Returns customer information based on the provided `customer_id`. If no ID is provided, returns information for all customers.
 - **Query Parameters**:
   - `customer_id` (integer, optional): The ID of the customer.
+- Source code at [/mock/customers.sql](/mock/customers.sql) and endpoint definition at [/mock/customers.yml](/mock/customers.yml).
 
-### 2. GET `/mock/customers/orders`
+### GET `/mock/customers/orders`
 
 - **Description**: Returns mocked customer orders for a given `customer_id`, including order ID, product name, quantity, and price.
 - **Query Parameters**:
   - `customer_id` (integer, optional): The ID of the customer.
+- Source code at [/mock/customers.sql](/mock/customers/orders.sql) and endpoint definition at [/mock/customers.yml](/mock/customers/orders.yml).
 
-### 3. GET `/mock/products/sales`
+### GET `/mock/products/sales`
 
 - **Description**: Returns sales information for products. If a `product_id` is provided, returns sales for that specific product.
 - **Query Parameters**:
   - `product_id` (integer, optional): The ID of the product.
+- Source code at [/mock/products/sales.sql](/mock/products/sales.sql) and endpoint definition at [/mock/products/sales.yml](/mock/products/sales.yml).
 
-## Query Structure
+## Short Intro to RAW APIs
 
-### Basic Structure of SQL Files
+In RAW, APIs consist of two parts: a YAML file for endpoint configuration and a SQL file for the query logic. The YAML file path defines the API’s endpoint. For example, /inventory/stock.yaml corresponds to the API path /inventory/stock.
 
-- **Parameters**: Defined at the top of each file using comments in the RAW format.
-- **Mock Data**: Created using the `VALUES` clause to simulate tables.
-- **Variable Injection**: Parameters are injected into the SQL queries using `:<variable_name>`.
-- **Conditional Logic**: SQL `WHERE` clauses use parameters to filter data.
-
-**Example Parameter Declaration**:
-
+SQL queries can include dynamic parameters using the `:<variable_name>` syntax. For instance:
 ```sql
--- @param customer_id the ID of the customer
--- @type customer_id integer
+WHERE CustomerID = :customer_id
+```
+Here, `:customer_id` becomes a query parameter, accessible via the API as `?customer_id=<value>`.
+
+To document parameters, enforce types or default values, add metadata at the top of the SQL file as in:
+```sql
+-- @param customer_id the ID of the customer  
+-- @type customer_id integer  
 -- @default customer_id null
 ```
 
-### Using Variables
+## Next Steps
 
-Variables are used within the SQL queries to filter data based on the provided parameters.
+This API template is easily customizable in RAW. Here are some ideas for next steps:
 
-**Example Usage**:
-
-```sql
-WHERE :customer_id IS NULL OR CustomerID = :customer_id;
-```
-
-- If `:customer_id` is `NULL`, the condition is ignored, and all records are returned.
-- If `:customer_id` has a value, the query filters records where `CustomerID` matches the provided ID.
-
-## Customization
-
-This mock data API template is designed to be easily customizable:
-
-- **Modify SQL Queries**: Adjust the hardcoded data in the `VALUES` clause to fit your use case.
+- **Modify the Queries**: Adjust the hardcoded data in the `VALUES` clause to fit your use case.
 - **Add New Endpoints**: Create new SQL files and define corresponding endpoints in the OpenAPI specification.
 - **Change Parameters**: Add or modify parameters to support additional filters or data retrieval options.
 - **Integrate with Real Backend Systems**: Replace the mock data with queries against actual backend systems, if needed.
-
----
-
-## Example SQL Queries
-
-### 1. GET `/mock/customers`
-
-**Description:**
-
-This SQL query retrieves customer details from a hardcoded list of customers. If a `customer_id` is provided, it filters the results to return only the customer with the matching `CustomerID`. If no `customer_id` is provided, it returns all customers.
-
-**SQL Query:**
-
-```sql
--- @param customer_id the ID of the customer
--- @type customer_id integer
--- @default customer_id null
-
--- @return mocked customer details.
-
-SELECT * FROM (
-    VALUES
-        (1, 'Alice Johnson', 'alice@example.com'),
-        (2, 'Bob Smith', 'bob@example.com'),
-        (3, 'Charlie Rose', 'charlie@example.com')
-) AS Customers (CustomerID, Name, Email)
-WHERE :customer_id IS NULL OR CustomerID = :customer_id;
-```
-
----
-
-### 2. GET `/mock/customers/orders`
-
-**Description:**
-
-This SQL query retrieves orders for customers from hardcoded data. It includes details such as Order ID, Product Name, Quantity, and Price. If a `customer_id` is provided, it filters the orders to those belonging to that customer. If no `customer_id` is provided, it returns orders for all customers.
-
-**SQL Query:**
-
-```sql
--- @param customer_id the ID of the customer
--- @type customer_id integer
--- @default customer_id null
-
--- @return mocked customer orders.
-
-SELECT Orders.OrderID, Products.ProductName, Orders.Quantity, Products.Price
-FROM (
-    VALUES
-        (101, 1, 1, 2),  -- OrderID, CustomerID, ProductID, Quantity
-        (102, 2, 2, 1),
-        (103, 3, 1, 1),
-        (104, 1, 3, 5)
-) AS Orders (OrderID, CustomerID, ProductID, Quantity)
-INNER JOIN (
-    VALUES
-        (1, 'Laptop', 1200.00),
-        (2, 'Smartphone', 800.00),
-        (3, 'Tablet', 400.00)
-) AS Products (ProductID, ProductName, Price)
-    ON Orders.ProductID = Products.ProductID
-WHERE :customer_id IS NULL OR Orders.CustomerID = :customer_id;
-```
-
----
-
-### 3. GET `/mock/products/sales`
-
-**Description:**
-
-This SQL query calculates the total sales for products using hardcoded data. It sums up the total sales by multiplying the quantity sold by the product price. If a `product_id` is provided, it filters the results to show sales for that specific product. If no `product_id` is provided, it returns sales information for all products.
-
-**SQL Query:**
-
-```sql
--- @param product_id the ID of the product
--- @type product_id integer
--- @default product_id null
-
--- @return mocked product sales information.
-
-SELECT Products.ProductName, SUM(Orders.Quantity * Products.Price) AS TotalSales
-FROM (
-    VALUES
-        (1, 'Laptop', 1200.00),
-        (2, 'Smartphone', 800.00),
-        (3, 'Tablet', 400.00)
-) AS Products (ProductID, ProductName, Price)
-INNER JOIN (
-    VALUES
-        (1, 1, 2),  -- CustomerID, ProductID, Quantity
-        (2, 2, 1),
-        (3, 1, 1),
-        (1, 3, 5)
-    ) AS Orders (CustomerID, ProductID, Quantity)
-    ON Products.ProductID = Orders.ProductID
-WHERE :product_id IS NULL OR Products.ProductID = :product_id
-GROUP BY Products.ProductName;
-```
-
----
-
-## Support and Troubleshooting
-
-- **Documentation**:
-  - Refer to the [RAW Documentation](https://docs.raw-labs.com/docs/) for detailed guides.
-    - [Using Data Sources](https://docs.raw-labs.com/docs/sql/data-sources/overview)
-    - [Publishing APIs](https://docs.raw-labs.com/docs/publishing-api/overview)
-  - **Note**: Since this template uses mock data, connections to external data sources are not required.
-
-- **Community Forum**:
-  - Join the discussion on our [Community Forum](https://www.raw-labs.com/community).
-
-- **Contact Support**:
-  - Email us at [support@raw-labs.com](mailto:support@raw-labs.com) for assistance.
 
 ## License
 
@@ -269,15 +100,9 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](LIC
 
 ## Contact
 
-- **Email**: [support@raw-labs.com](mailto:support@raw-labs.com)
-- **Website**: [https://raw-labs.com](https://raw-labs.com)
-- **Twitter**: [@RAWLabs](https://twitter.com/raw_labs)
-- **Community Forum**: [Forum](https://www.raw-labs.com/community)
+- **Website**: [www.raw-labs.com](https://www.raw-labs.com)
+- **Twitter**: [@raw_labs](https://twitter.com/raw_labs)
+- **Contact Support**: Email us at [support@raw-labs.com](mailto:support@raw-labs.com) for assistance
+- **Community Forum**: Join the discussion on our [Community Forum](https://www.raw-labs.com/community)
 
----
-
-## Additional Resources
-
-- **RAW Documentation**: Comprehensive guides and references are available at [docs.raw-labs.com](https://docs.raw-labs.com/).
-- **Publishing APIs**: Learn how to publish your SQL queries as APIs [here](https://docs.raw-labs.com/docs/publishing-api/overview).
-- **SQL Language**: Explore RAW's SQL language for data manipulation [here](https://docs.raw-labs.com/sql/overview).
+For more information, visit our [documentation](https://docs.raw-labs.com).
