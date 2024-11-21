@@ -90,8 +90,8 @@ To document parameters, enforce types or default values, add metadata at the top
 This API template is easily customizable in RAW. Here are some ideas for next steps:
 
 - **Modify the Queries**: Adjust the hardcoded data in the `VALUES` clause to fit your use case.
-- **Add New Endpoints**: Create new SQL files and define corresponding endpoints in the OpenAPI specification.
 - **Change Parameters**: Add or modify parameters to support additional filters or data retrieval options.
+- **Add New Endpoints**: Create new YAML and SQL files to define new endpoints.
 - **Integrate with Real Backend Systems**: Replace the mock data with queries against actual backend systems, if needed.
 
 ## License
